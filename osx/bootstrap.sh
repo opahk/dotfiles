@@ -2,6 +2,9 @@
 DOTPATH=$HOME/.dotfiles
 BATTLEPATH=$HOME/.battleschool
 
+git config --global user.name "Frank C. Eckert"
+git config --global user.email frank.eckert@boost-project.com
+
 install_dependencies() {
   mkdir -p $DOTPATH
   mkdir -p $BATTLEPATH
