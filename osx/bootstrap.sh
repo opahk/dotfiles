@@ -2,9 +2,12 @@
 DOTPATH=$HOME/.dotfiles
 BATTLEPATH=$HOME/.battleschool
 
-# TODO: check for Command Line Tools on OSX
-# @see http://stackoverflow.com/a/19899984
-# xcode-select --install
+install_dependencies() {
+  mkdir -p $DOTPATH
+  mkdir -p $BATTLEPATH
+  xcode-select --install
+  sudo gcc -v # to agree to terms
+}
 
 install_battleschool() {
   sudo easy_install pip
@@ -15,7 +18,7 @@ install_battleschool() {
 # Install dotfiles
 install_dotfiles() {
   git clone https://github.com/opahk/dotfiles.git $DOTPATH
-  cd $DOTPATH && ./bootstrap.sh
+  cd $DOTPATH && bash bootstrap.sh
 }
 
 battle_again() {
@@ -32,6 +35,7 @@ set_login_shell() {
 }
 
 
+install_dependencies
 install_dotfiles
 install_battleschool
 set_login_shell
