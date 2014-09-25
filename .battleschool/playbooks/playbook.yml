@@ -15,6 +15,7 @@
       - keepassx
       # - kindle
       - mysqlworkbench
+      - onepassword
       - skype
       # - spark
       - vagrant

@@ -9,7 +9,7 @@ install_dependencies() {
   sudo gcc -v # to agree to terms
 
   # homebrew
-  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew update
   brew upgrade
   brew tap phinze/homebrew-cask
@@ -29,6 +29,7 @@ install_dotfiles() {
 }
 
 battle_again() {
+  sudo ansible-galaxy install hnakamur.homebrew-cask-packages
   battle
 }
 
