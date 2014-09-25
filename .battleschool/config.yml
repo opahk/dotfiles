@@ -1,7 +1,7 @@
 ---
 sources:
   local:
-    #- playbook.yml
+    - playbook.yml
 
   url:
     #- name: playbook.yml
