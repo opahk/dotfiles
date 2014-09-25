@@ -24,7 +24,21 @@ set ruler
 set noswapfile
 set autoread
 set hidden
+set history=10000
 set clipboard=unnamedplus
+
+" enable per-project .vimrc files
+set exrc
+" Only execute safe per-project vimrc commands
+set secure
+
+set tags+=tags
+
+"set foldmethod=indent
+"set foldnestmax=10
+"set nofoldenable
+"set foldlevel=1
+
 set background=dark
 colorscheme solarized
 
@@ -47,7 +61,10 @@ filetype plugin indent on
 
 set list listchars=trail:·
 
+let NERDSpaceDelims=1 " Whitespace around comments
+
 noremap ;; :update<CR>
+noremap <Leader>t :!~/dotfiles/ctags-proj.sh<CR>
 imap jj <ESC>
 map <C-H> <C-W>h
 map <C-J> <C-W>j
@@ -57,6 +74,8 @@ nnoremap <silent><a-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 nnoremap <silent><a-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><a-o> :set paste<CR>o<Esc>:set nopaste<CR>
 nnoremap <silent><a-O> :set paste<CR>O<Esc>:set nopaste<CR>
+
+"awesome ruby hash rocket to 1.9 syntax converter
 map <Leader>h :%s/:\(\w\+\)\(\s\+\)=>/\1:/g<CR>
 
 syntax on

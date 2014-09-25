@@ -26,20 +26,34 @@ RPROMPT='$(bash ~/bin/git-cwd-info.rb)'
 zle-line-init() { zle -K vicmd; }
 zle -N zle-line-init
 
+# Path settings
+#
+# Heroku
+export PATH=/usr/local/heroku/bin:$PATH
+# Go
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$GOPATH/bin
+# Add RVM to PATH for scripting
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
+[[ -s /home/opahk/.nvm/nvm.sh ]] && . /home/opahk/.nvm/nvm.sh # This loads NVM
+export PATH=./bin:/home/opahk/bin:$PATH
+export SYNC_DOTFILES=1
+export DOTFILES=".zsh .zshrc dotfiles .bash_history .bashrc .gitconfig .rspec .pry_history .secret"
 
 # aliases
 #
-alias bi='bundle install --binstubs ./bin'
-alias bu='bundle update && bi'
+alias bi='bundle install'
+alias bu='bundle update'
 
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -m'
 alias gco='git checkout'
+alias gcom='git checkout master'
 alias gd='git diff'
 alias gm='git merge'
+alias gmm='git merge master'
 alias gpl='git pull'
 alias gps='git push'
 alias gst='git status'
@@ -55,34 +69,21 @@ alias dr='dotcloud run'
 alias h='heroku'
 
 alias r='ruby'
-alias rs='rspec spec'
+alias rs='bundle exec rspec'
 
-alias rss='rails s'
-alias rc='rails c'
+alias rss='bundle exec rails s'
+alias rc='bundle exec rails c'
 
 alias s='sudo'
 alias sa='sudo apt-get'
 
 alias k9='killall -9'
 
-alias cpd='cap production deploy'
-alias cpc='cap production rails:console'
-alias cpl='cap production logs'
-alias csd='cap staging deploy'
-alias csc='cap staging rails:console'
-alias csl='cap production logs'
-
-# Path settings
-#
-export PATH=./bin:/home/opahk/bin:/home/opahk/code/boost/bin:$PATH
-# Heroku
-export PATH="/usr/local/heroku/bin:$PATH"
-# Add RVM to PATH for scripting
-PATH=$PATH:/usr/local/rvm/bin
-
-# ruby tuning
-export RUBY_HEAP_MIN_SLOTS=800000
-export RUBY_HEAP_FREE_MIN=100000
-export RUBY_HEAP_SLOTS_INCREMENT=300000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=79000000
+alias cpd='bundle exec cap production deploy'
+alias cpc='bundle exec cap production rails:console'
+alias cpl='bundle exec cap production logs'
+alias csd='bundle exec cap staging deploy'
+alias csc='bundle exec cap staging rails:console'
+alias csl='bundle exec cap staging logs'
+alias be='bundle exec'
+alias bul='bundle update --local'

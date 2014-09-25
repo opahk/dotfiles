@@ -1,0 +1,16 @@
+name: gapfish
+root: ~/code/gapfish
+windows:
+  - editor:
+      layout: even-horizontal
+      panes:
+        - ivim
+        - igpl
+  - production:
+      layout: main-vertical
+      panes:
+        - issh gf -t 'top'
+        - issh gf -t 'cd;tail -f current/log/delayed_job.log'
+        - icpc
+        -
+  - server: irails s
