@@ -7,6 +7,13 @@ install_dependencies() {
   mkdir -p $BATTLEPATH
   xcode-select --install
   sudo gcc -v # to agree to terms
+
+  # homebrew
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+  brew update
+  brew upgrade
+  brew tap phinze/homebrew-cask
+  brew install brew-cask
 }
 
 install_battleschool() {
