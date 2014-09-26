@@ -21,7 +21,7 @@ compinit
 promptinit
 setopt prompt_subst
 
-RPROMPT='$(bash ~/bin/git-cwd-info.rb)'
+RPROMPT='$(bash ~/.dotfiles/bin/git-cwd-info.rb)'
 
 zle-line-init() { zle -K vicmd; }
 zle -N zle-line-init
