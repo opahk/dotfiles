@@ -1,0 +1,24 @@
+---
+- name: set zsh as default shell
+  hosts: local
+
+  tasks:
+    - name: Determining username
+      action: shell whoami
+      register: whoami
+      sudo: False
+
+    - name: Changing the default shell to zsh
+      action: user shell=/bin/zsh user=${whoami.stdout}
+
+- name: Entering Plugin Nirvana
+  hosts: local
+  sudo: False
+
+  tasks:
+
+  - name: Installing oh-my-zsh (https://github.com/robbyrussell/oh-my-zsh)
+    action: git repo=https://github.com/robbyrussell/oh-my-zsh dest=~/.oh-my-zsh
+
+  - name: Creating new ~/.zshrc
+    action: shell cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc

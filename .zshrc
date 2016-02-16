@@ -1,4 +1,3 @@
-export SHELL=/usr/bin/zsh
 export EDITOR=/usr/bin/vim
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -13,7 +12,7 @@ bindkey '^R' history-incremental-search-backward
 setopt hist_ignore_all_dups
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/opahk/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit promptinit colors
 colors
@@ -35,36 +34,34 @@ export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 # Add RVM to PATH for scripting
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && source "/usr/local/rvm/scripts/rvm"
-[[ -s /home/opahk/.nvm/nvm.sh ]] && . /home/opahk/.nvm/nvm.sh # This loads NVM
-export PATH=./bin:/home/opahk/bin:$PATH
+export PATH=./bin:/Users/opahk/bin:/Users/opahk/code/living-in-a-box/bin:$PATH
 export SYNC_DOTFILES=1
-export DOTFILES=".zsh .zshrc dotfiles .bash_history .bashrc .gitconfig .rspec .pry_history .secret"
+export DOTFILES=".zshrc .zsh_history .dotfiles .bash_history .bashrc .gitconfig .rspec .pry_history .secret .ssh"
 
 # aliases
 #
 alias bi='bundle install'
 alias bu='bundle update'
 
-alias g='git'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit -m'
-alias gco='git checkout'
-alias gcom='git checkout master'
-alias gd='git diff'
-alias gm='git merge'
-alias gmm='git merge master'
-alias gpl='git pull'
-alias gps='git push'
-alias gst='git status'
-alias gsh='git stash'
-alias gsa='git stash apply'
+alias g='git '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit -m '
+alias gco='git checkout '
+alias gcom='git checkout master '
+alias gd='git diff '
+alias gdc='git diff --cached '
+alias gm='git merge '
+alias gmm='git merge master '
+alias gpl='git pull '
+alias gps='git push '
+alias gst='git status '
+alias gsh='git stash '
+alias gsa='git stash apply '
+alias gfa='for remote in `git branch -r | grep -v \>`; do git branch --track ${remote#origin/} $remote; done && git fetch --all'
 
-alias d='dotcloud'
-alias di='dotcloud info'
-alias dps='dotcloud push --git -b dotcloud'
-alias ds='dotcloud scale'
-alias dr='dotcloud run'
+alias ds='dev shell'
+alias dss='dev kill && dev start && dev shell'
 
 alias h='heroku'
 
@@ -77,6 +74,8 @@ alias rc='bundle exec rails c'
 alias s='sudo'
 alias sa='sudo apt-get'
 
+alias ss='eval `ssh-agent -s` && ssh-add ~/.ssh/id_rsa'
+
 alias k9='killall -9'
 
 alias cpd='bundle exec cap production deploy'
@@ -87,3 +86,10 @@ alias csc='bundle exec cap staging rails:console'
 alias csl='bundle exec cap staging logs'
 alias be='bundle exec'
 alias bul='bundle update --local'
+
+[ -z "$HOME" ] && export HOME=/
+
+ulimit -n 65536
+ulimit -u 2048
+
+source /usr/local/share/zsh/site-functions/_aws

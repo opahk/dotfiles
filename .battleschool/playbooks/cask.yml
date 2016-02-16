@@ -4,22 +4,23 @@
   sudo: no
   vars:
     homebrew_cask_packages_packages:
-      - atom
-      # - calibre
+      - android-studio
+      - anki
+      - disk-inventory-x
       - firefox
       - google-chrome
-      # - grandperspective
-      # - hipchat
+      - gpgtools
+      - graphviz
+      - inkscape
       - iterm2
       - java
       - keepassx
-      # - kindle
+      - mumble
       - mysqlworkbench
       - onepassword
       - skype
-      # - spark
       - vagrant
       - virtualbox
-      # - zeroxed
+      - vlc
   roles:
     - hnakamur.homebrew-cask-packages

@@ -1,0 +1,35 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_packages_packages:
+      - { name: ack }
+      - { name: ansible }
+      - { name: autossh }
+      - { name: awscli }
+      - { name: bash }
+      - { name: docker }
+      - { name: docker-compose }
+      - { name: docker-machine }
+      - { name: cmake }
+      - { name: coreutils }
+      - { name: ctags }
+      - { name: git }
+      - { name: gnupg2 }
+      - { name: gpg-agent }
+      - { name: hdf5 }
+      - { name: heroku-toolbelt }
+      - { name: htop-osx }
+      - { name: hub }
+      - { name: imagemagick }
+      - { name: ruby }
+      - { name: python3 }
+      - { name: swiftlint }
+      - { name: tmux }
+      - { name: wemux }
+      - { name: wget, install_options: enable-iri }
+      - { name: xctool }
+      - { name: xz }
+  roles:
+    - hnakamur.homebrew-packages

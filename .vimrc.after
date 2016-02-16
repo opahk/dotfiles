@@ -1,0 +1,27 @@
+noremap ;; :update<CR>
+noremap <Leader>t :!~/.dotfiles/ctags-proj.sh<CR>
+imap jj <ESC>
+imap jk <ESC>
+map <C-H> <C-W>h
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+
+set background=dark
+let g:solarized_termtrans = 1
+" colorscheme solarized
+colorscheme Tomorrow-Night-Eighties
+
+autocmd BufWritePre * :%s/\s\+$//e
+au! BufRead,BufNewFile *.json set filetype=json
+au! BufNewFile,BufRead *.yaml,*.yml,*.raml set filetype=yaml
+
+set clipboard=unnamed
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'

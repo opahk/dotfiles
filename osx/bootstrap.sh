@@ -33,6 +33,7 @@ install_dotfiles() {
 
 battle_again() {
   sudo ansible-galaxy install hnakamur.homebrew-cask-packages
+  sudo ansible-galaxy install hnakamur.homebrew-packages
   battle
 }
 
@@ -40,10 +41,6 @@ battle_again() {
 # install_janus() {
   # curl -Lo- https://bit.ly/janus-bootstrap | bash
 # }
-
-set_login_shell() {
-  sudo chsh -s $(which zsh) $USER
-}
 
 
 install_dependencies

@@ -1,7 +1,9 @@
 ---
 sources:
   local:
-    - playbook.yml
+    - cask.yml
+    - brew.yml
+    - zsh.yml
 
   url:
     #- name: playbook.yml
