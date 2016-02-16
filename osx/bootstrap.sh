@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 DOTPATH=$HOME/.dotfiles
-BATTLEPATH=$HOME/.battleschool
+BATTLEPATH=$HOME/.dotfiles/.battleschool
 
 git config --global user.name "Frank C. Eckert"
 git config --global user.email frank.eckert@boost-project.com
@@ -38,12 +38,13 @@ battle_again() {
 }
 
 # Install the janus vim distribution (https://github.com/carlhuda/janus/)
-# install_janus() {
-  # curl -Lo- https://bit.ly/janus-bootstrap | bash
-# }
+ install_janus() {
+   curl -Lo- https://bit.ly/janus-bootstrap | bash
+ }
 
 
 install_dependencies
-install_dotfiles
+install_janus
+#install_dotfiles
 install_battleschool
 set_login_shell
