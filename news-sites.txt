@@ -1,8 +1,8 @@
-||nytimes.com^
-||washingtonpost.com^
-||fivethirtyeight.com^
-||slowtwitch.com^
-||velonews.com^
-||cyclingtips.com^
-||theguardian.com^
-||youtube.com^
+nytimes.com
+washingtonpost.com
+fivethirtyeight.com
+slowtwitch.com
+velonews.com
+cyclingtips.com
+theguardian.com
+youtube.com
